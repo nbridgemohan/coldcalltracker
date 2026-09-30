@@ -44,3 +44,5 @@ next-env.d.ts
 # lead data stays out of the (public) repo
 /data
 *.csv
+
+.vercel
