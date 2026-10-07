@@ -29,3 +29,15 @@ The lead CSV is **not** committed (the repo is public). Re-running the import re
 
 - Every push to `main` deploys to production on Vercel; every PR gets a preview deployment.
 - GitHub Actions (`.github/workflows/ci.yml`) runs lint, typecheck and a production build on pushes and PRs.
+
+## MCP server (log calls from Claude)
+
+`scripts/mcp-server.mjs` is a local stdio MCP server that talks to the same Neon database (via `.env.local`). It's registered in `.mcp.json`, so Claude Code picks it up when started in this folder.
+
+Tools: `find_leads`, `get_lead` (with call history), `log_call`, `update_lead`, `follow_ups`, `stats`. Leads can be referenced by id, phone number or business name.
+
+For Claude Desktop, add to `claude_desktop_config.json`:
+
+```json
+{ "mcpServers": { "coldcalltracker": { "command": "node", "args": ["C:\apps\coldcalltracker\scripts\mcp-server.mjs"] } } }
+```

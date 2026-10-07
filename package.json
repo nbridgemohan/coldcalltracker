@@ -9,13 +9,16 @@
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "db:migrate": "node scripts/migrate.mjs",
-    "db:import": "node scripts/import-leads.mjs"
+    "db:import": "node scripts/import-leads.mjs",
+    "mcp": "node scripts/mcp-server.mjs"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
     "@neondatabase/serverless": "^1.1.0",
     "next": "16.3.8",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
